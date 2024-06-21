@@ -6,8 +6,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\IngredientRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
+#[UniqueEntity('name')]
 class Ingredient
 {
     #[ORM\Id]
@@ -67,7 +69,7 @@ class Ingredient
         return $this;
     }
 
-    public function getCreatedAT(): ?string
+    public function getCreatedAT(): DateTimeImmutable
     {
         return $this->createdAT;
     }

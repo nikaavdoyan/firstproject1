@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class ="container">
+{% for message in app.flashes('success')  %}
+<div class="alert-success">
+{{message}}
+</div>
+{% endfor %}
+<h1 class ="mt-4">Modification de  l'ingredients</h1>
+</div>    
+{{form_start(form)}}
+
+<div class="my-custom-class-for-errors">
+        {{form_errors(form)}}
+</div>
+
+<div class="form-groupe">
+    {{form_row(form.name)  }}
+    {# {{form_widget(form.name) }} #}
+<div class="form-error" >
+{{form_errors(form.name) }}
+    </div>
+</div>
+
+<div class="form-groupe">
+    {{form_row(form.price) }}
+    {# {{form_widget(form.price) }} #}
+<div class="form-error" >
+{{form_errors(form.price) }}
+
+    </div>
+</div>
+
+<div class="form-group">
+{{form_row(form.submit) }}
+</div>
+{{form_end(form) }}
+</div>
+{% endblock %}
