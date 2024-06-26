@@ -28,11 +28,11 @@ class Recipeet
         minMessage:'Your name must be at least {{ limit }} characters long',
         maxMessage:'Your first name cannot be longer than {{ limit }} characters',
     )]
-    private ?string $Name = null;
+    private ?string $name = null;
 
     #[ORM\Column]
     #[Assert\Length(1441)]
-    private ?int $Time = null;
+    private ?int $time = null;
 
     #[ORM\Column(nullable: true)]
     #[Assert\Positive()]
@@ -89,24 +89,24 @@ class Recipeet
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): static
+    public function setName(string $name): static
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
     public function getTime(): ?int
     {
-        return $this->Time;
+        return $this->time;
     }
 
-    public function setTime(int $Time): static
+    public function setTime(int $time): static
     {
-        $this->Time = $Time;
+        $this->time = $time;
 
         return $this;
     }
@@ -116,9 +116,9 @@ class Recipeet
         return $this->nbpeople;
     }
 
-    public function setNbpeople(?int $nbpeople): static
+    public function setNbpeople(?int $nbPeople): static
     {
-        $this->nbpeople = $nbpeople;
+        $this->nbpeople = $nbPeople;
 
         return $this;
     }
@@ -164,9 +164,9 @@ class Recipeet
         return $this->isfavorite;
     }
 
-    public function setIsfavorite(int $isfavorite): static
+    public function setIsfavorite(int $isFavorite): static
     {
-        $this->isfavorite = $isfavorite;
+        $this->isfavorite = $isFavorite;
 
         return $this;
     }
