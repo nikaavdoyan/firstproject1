@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use App\EntityListener\UserListener;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[UniqueEntity('email')]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\EntityListeners('App\EntityListener\UserListeren')]
+#[ORM\EntityListeners('App\EntityListener\UserListener')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
