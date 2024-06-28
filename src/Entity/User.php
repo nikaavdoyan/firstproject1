@@ -50,7 +50,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $pseudo = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column]
+    #[Assert\NotBlank()]
     private ?\DateTimeInterface $createdat = null;
 
     public function __construct()
@@ -168,10 +169,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    /**
+     * Get the value of plainPassword
+     */
     public function getPlaintPassword()
     {
         return $this->plainPassword;
     }
+    /**
+     * Set value of plainPassword
+     *
+     * @return self
+     */
     public function setPlaintPassword($plainPassword)
     {
         $this->plainPassword = $plainPassword;
